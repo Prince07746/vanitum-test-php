@@ -26,6 +26,10 @@ function call_service(string $slug): mixed {
 
 $route = $parts[0] ?? '';
 
+if ($route === '') {
+    out(['service' => 'vanitum-test-php', 'status' => 'ok', 'routes' => ['/health', '/env', '/call/{slug}', '/chain/{slug1}/{slug2}']]);
+}
+
 if ($route === 'health') {
     out(['status' => 'ok', 'service' => 'vanitum-test-php', 'time' => date('c')]);
 }
